@@ -1,69 +1,67 @@
 import Banner from "@/components/hero-banner";
 import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
+import KegiatanSection from "@/components/kegiatan-section";
+import EkstrakurikulerSection from "@/components/ekstrakurikuler-section";
+import AnnouncementSection from "@/components/announcement-section";
 
 export default function Home() {
   return (
-    <main className=" space-y-16">
+    <main className="space-y-24">
       <Banner />
-      {/* Tambahan section di bawah */}
-      <section className="text-center max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold mb-2">Visi & Misi</h2>
-        <p className="text-gray-700">“Terwujudnya Peserta Didik yang Beriman, Bertaqwa, Cerdas, Terampil, Mandiri dan Berwawasan Global”</p>
-        <ul className="list-disc list-inside mt-4 text-left text-gray-600">
-          <li>Menciptakan Lingkungan yang Religius</li>
-          <li>Melaksanakan Kegiatan KeagamaanMelaksanakan Kegiatan Keagamaan</li>
-          <li>Menumbuhkan prilaku Peserta didik yang taat beribadah</li>
-          <li>Mengembangkan Kompetensi Pendidik dan Tenaga Kependidikan di Lingkungan Sekolah</li>
-          <li>Menciptakan Suasana pembelajaran yang aktif, inovatif, kreatif, efektif, dan menyenangkan.</li>
-          <li>Menanamkan sikap kompetitif dalam diri peserta didik.</li>
-          <li>Menumbuhkembangkan kreativitas, bakat, dan minat peserta didik.</li>
-          <li>Mewujudkan peserta didik berprestasi melalui kegiatan akademik maupun non akademik</li>
-          <li>Menanamkan rasa saling menghormati,menyayangi, dan menghargai sesama</li>
-          <li>Membimbing peserta didik dengan kasih saying dalam bentuk lima karakter utama</li>
-          <li>Memenuhi semua hak peserta didik tanpa terkecuali dalam memperoleh pendidikan</li>
-        </ul>
-      </section>
 
-      <section>
-        <h2 className="text-2xl font-bold text-center mb-6">Kegiatan Siswa</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white shadow-md p-4 rounded-lg">
-            <Image
-              src="/kegiatan1.jpg"
-              alt="Kegiatan Pramuka"
-              width={400}
-              height={250}
-              className="rounded-md object-cover w-full h-48"
-            />
-            <h3 className="text-lg font-semibold mt-2">Pramuka</h3>
-            <p className="text-sm text-gray-600">Melatih kedisiplinan dan kerja sama tim sejak dini.</p>
+      {/* Pengumuman Sekolah */}
+
+      {/* Visi Misi */}
+      <section className="max-w-screen-xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center mb-12">Visi & Misi</h2>
+
+        <div className="flex flex-col md:flex-row gap-8">
+
+          {/* Video */}
+          <div className="flex-1 h-auto">
+            <div className="w-full h-full rounded-xl shadow-md overflow-hidden">
+              <iframe
+                className="w-full h-full min-h-[420px] md:min-h-0 aspect-[4/3] md:aspect-auto"
+                src="https://www.youtube.com/embed/jQRbzGvlcQA"
+                title="Video Profil Sekolah"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
-          <div className="bg-white shadow-md p-4 rounded-lg">
-            <Image
-              src="/kegiatan2.jpg"
-              alt="Kegiatan Upacara"
-              width={400}
-              height={250}
-              className="rounded-md object-cover w-full h-48"
-            />
-            <h3 className="text-lg font-semibold mt-2">Upacara Bendera</h3>
-            <p className="text-sm text-gray-600">Menanamkan rasa cinta tanah air dan kedisiplinan.</p>
-          </div>
-          <div className="bg-white shadow-md p-4 rounded-lg">
-            <Image
-              src="/kegiatan3.jpg"
-              alt="Kegiatan Lomba"
-              width={400}
-              height={250}
-              className="rounded-md object-cover w-full h-48"
-            />
-            <h3 className="text-lg font-semibold mt-2">Lomba 17 Agustus</h3>
-            <p className="text-sm text-gray-600">Meningkatkan kreativitas dan semangat kebersamaan antar siswa.</p>
+
+          {/* Teks Visi Misi */}
+          <div className="flex-1 bg-white rounded-xl shadow-lg p-6 self-start">
+            <p className="text-lg text-gray-700 italic text-center mb-4">
+              “Terwujudnya Peserta Didik yang Beriman, Bertaqwa, Cerdas, Terampil, Mandiri dan Berwawasan Global”
+            </p>
+            <ul className="list-disc list-inside text-gray-600 space-y-2 text-sm">
+              <li>Menciptakan Lingkungan yang Religius</li>
+              <li>Melaksanakan Kegiatan Keagamaan</li>
+              <li>Menumbuhkan perilaku peserta didik yang taat beribadah</li>
+              <li>Mengembangkan Kompetensi Pendidik dan Tenaga Kependidikan</li>
+              <li>Menciptakan Suasana pembelajaran yang aktif dan menyenangkan</li>
+              <li>Menanamkan sikap kompetitif dalam diri peserta didik</li>
+              <li>Menumbuhkan kreativitas, bakat, dan minat siswa</li>
+              <li>Wujudkan prestasi melalui kegiatan akademik & non-akademik</li>
+              <li>Menanamkan rasa hormat dan kasih sayang antar sesama</li>
+              <li>Membimbing dengan kasih dalam lima karakter utama</li>
+              <li>Memenuhi hak pendidikan semua peserta didik tanpa terkecuali</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <footer className="text-center text-sm text-gray-500 mt-20">
+
+      {/* Kegiatan Siswa */}
+      <KegiatanSection />
+
+      <EkstrakurikulerSection />
+
+
+      {/* Footer */}
+      <footer className="text-center text-sm text-gray-500 mt-20 py-10">
         © 2025 SDN Semper Barat 01. All rights reserved.
       </footer>
     </main>
