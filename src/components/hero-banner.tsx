@@ -38,7 +38,7 @@ export default function HeroBanner() {
             variant="outline"
           >
             <a
-              href="https://agent.sekolahkita.com"
+              href="https://t.me/SS01JU_bot"
               target="_blank"
               rel="noopener noreferrer"
             >
