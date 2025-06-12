@@ -57,7 +57,7 @@ export default function HeroBanner() {
               className="text-green-600 hover:bg-green-100"
             >
               <a
-                href="https://wa.me/6281234567890"
+                href="https://www.whatsapp.com/channel/0029Vb64drS65yD5VaB8gP1n"
                 target="_blank"
                 rel="noopener noreferrer"
               >
