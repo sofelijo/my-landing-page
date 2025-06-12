@@ -1,9 +1,7 @@
 import Banner from "@/components/hero-banner";
-import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
 import KegiatanSection from "@/components/kegiatan-section";
 import EkstrakurikulerSection from "@/components/ekstrakurikuler-section";
-import AnnouncementSection from "@/components/announcement-section";
+
 
 export default function Home() {
   return (
