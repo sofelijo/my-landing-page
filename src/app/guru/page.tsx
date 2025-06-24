@@ -209,7 +209,7 @@ export default function GuruPage() {
 
                                 <div className="text-sm flex items-center gap-2">
                                     <Calendar className="w-4 h-4 text-gray-500" />
-                                    {guru.tempat_lahir},{" "}
+                                    Tempat Lahir : {guru.tempat_lahir}{" "}
                                     
                                 </div>
 
