@@ -24,7 +24,7 @@ export default function DokumentasiSection() {
           <div className="aspect-[4/3] w-full rounded-xl shadow-md overflow-hidden">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/jQRbzGvlcQA"
+              src="https://www.youtube.com/embed/ocWuNkj_Eqk"
               title="Video Kegiatan Sekolah"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
     User,
-    Mail,
     School,
     Calendar,
-    BadgeInfo,
     Contact,
     Filter,
     Search,
@@ -60,106 +60,99 @@ export default function GuruPage() {
 
     return (
         <section className="max-w-screen-xl mx-auto px-6 py-12">
-            {/* Top control */}
-{/* === MOBILE LAYOUT === */}
-<div className="mb-6 block sm:hidden space-y-3">
-  {/* Baris 1: Kembali & Filter */}
-  <div className="flex justify-between items-center">
-    <a
-      href="/"
-      className="inline-flex items-center gap-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-md transition"
-    >
-      <svg
-        className="w-4 h-4"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={2}
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-      </svg>
-      Kembali
-    </a>
+            {/* === MOBILE LAYOUT === */}
+            <div className="mb-6 block sm:hidden space-y-3">
+                <div className="flex justify-between items-center">
+                    <Link
+                        href="/"
+                        className="inline-flex items-center gap-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-md transition"
+                    >
+                        <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            viewBox="0 0 24 24"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                        Kembali
+                    </Link>
 
-    <div className="flex items-center gap-2">
-      <Filter className="w-4 h-4 text-muted-foreground" />
-      <select
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
-        className="border rounded-md px-3 py-2 text-sm bg-white shadow-sm"
-      >
-        {kategoriJabatan.map((kategori) => (
-          <option key={kategori} value={kategori}>
-            {kategori}
-          </option>
-        ))}
-      </select>
-    </div>
-  </div>
+                    <div className="flex items-center gap-2">
+                        <Filter className="w-4 h-4 text-muted-foreground" />
+                        <select
+                            value={filter}
+                            onChange={(e) => setFilter(e.target.value)}
+                            className="border rounded-md px-3 py-2 text-sm bg-white shadow-sm"
+                        >
+                            {kategoriJabatan.map((kategori) => (
+                                <option key={kategori} value={kategori}>
+                                    {kategori}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
 
-  {/* Baris 2: Search */}
-  <div className="relative w-full">
-    <Search className="absolute left-2.5 top-2.5 w-4 h-4 text-gray-400" />
-    <input
-      type="text"
-      placeholder="Cari nama atau email..."
-      className="pl-8 pr-3 py-2 w-full border rounded-md text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-100"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-    />
-  </div>
-</div>
+                <div className="relative w-full">
+                    <Search className="absolute left-2.5 top-2.5 w-4 h-4 text-gray-400" />
+                    <input
+                        type="text"
+                        placeholder="Cari nama atau email..."
+                        className="pl-8 pr-3 py-2 w-full border rounded-md text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                </div>
+            </div>
 
-{/* === DESKTOP LAYOUT === */}
-<div className="mb-6 hidden sm:flex sm:flex-row sm:items-center sm:justify-between gap-4">
-  {/* Kembali kiri */}
-  <a
-    href="/"
-    className="inline-flex items-center gap-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-md transition"
-  >
-    <svg
-      className="w-4 h-4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      viewBox="0 0 24 24"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-    </svg>
-    Kembali
-  </a>
+            {/* === DESKTOP LAYOUT === */}
+            <div className="mb-6 hidden sm:flex sm:flex-row sm:items-center sm:justify-between gap-4">
+                <Link
+                    href="/"
+                    className="inline-flex items-center gap-2 text-sm bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-md transition"
+                >
+                    <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Kembali
+                </Link>
 
-  {/* Filter + Search kanan */}
-  <div className="flex items-center gap-3">
-    <div className="flex items-center gap-2">
-      <Filter className="w-4 h-4 text-muted-foreground" />
-      <select
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
-        className="border rounded-md px-3 py-2 text-sm bg-white shadow-sm"
-      >
-        {kategoriJabatan.map((kategori) => (
-          <option key={kategori} value={kategori}>
-            {kategori}
-          </option>
-        ))}
-      </select>
-    </div>
+                <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
+                        <Filter className="w-4 h-4 text-muted-foreground" />
+                        <select
+                            value={filter}
+                            onChange={(e) => setFilter(e.target.value)}
+                            className="border rounded-md px-3 py-2 text-sm bg-white shadow-sm"
+                        >
+                            {kategoriJabatan.map((kategori) => (
+                                <option key={kategori} value={kategori}>
+                                    {kategori}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
 
-    <div className="relative w-64">
-      <Search className="absolute left-2.5 top-2.5 w-4 h-4 text-gray-400" />
-      <input
-        type="text"
-        placeholder="Cari nama atau email..."
-        className="pl-8 pr-3 py-2 w-full border rounded-md text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-100"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-    </div>
-  </div>
-</div>
-
-
+                    <div className="relative w-64">
+                        <Search className="absolute left-2.5 top-2.5 w-4 h-4 text-gray-400" />
+                        <input
+                            type="text"
+                            placeholder="Cari nama atau email..."
+                            className="pl-8 pr-3 py-2 w-full border rounded-md text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-100"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </div>
+                </div>
+            </div>
 
             <h2 className="text-4xl font-bold text-center mb-12">
                 Data Guru & Pegawai
@@ -175,10 +168,13 @@ export default function GuruPage() {
                             className="group rounded-2xl overflow-hidden shadow-md border bg-white hover:shadow-lg transition duration-300 p-0"
                         >
                             <div className="relative w-full h-80 overflow-hidden">
-                                <img
+                                <Image
                                     src={guru.foto}
                                     alt={`Foto ${guru.nama}`}
-                                    className="w-full h-full object-cover object-top transform transition duration-500 group-hover:scale-110"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    objectPosition="top"
+                                    className="transition duration-500 group-hover:scale-110"
                                 />
 
                                 <div className="absolute top-3 left-3 group-hover:opacity-0 transition duration-300">
