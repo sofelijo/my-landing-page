@@ -25,9 +25,14 @@ const ekstrakurikulerList = [
     description: "Meningkatkan kebugaran dan kekompakan siswa melalui latihan dan pertandingan futsal.",
   },
   {
-    title: "Marawis",
+    title: "Marawiss",
     image: "/ekstra/marawis.jpg",
     description: "Menumbuhkan kecintaan terhadap seni musik Islami melalui grup marawis sekolah.",
+  },
+  {
+    title: "PMR",
+    image: "/ekstra/PMR.jpg",
+    description: "membangun dan mengembangkan karakter kepalang merahan pada diri remaja.",
   },
 ];
 

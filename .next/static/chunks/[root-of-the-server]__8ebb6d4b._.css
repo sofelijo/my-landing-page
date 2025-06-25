@@ -172,8 +172,6 @@
   :root, :host {
     --color-red-100: oklch(93.6% .032 17.717);
     --color-red-600: oklch(57.7% .245 27.325);
-    --color-amber-100: oklch(96.2% .059 95.617);
-    --color-amber-600: oklch(66.6% .179 58.318);
     --color-yellow-100: oklch(97.3% .071 103.193);
     --color-yellow-800: oklch(47.6% .114 61.907);
     --color-green-100: oklch(96.2% .044 156.743);
@@ -507,10 +505,6 @@
 
   .bottom-3 {
     bottom: calc(var(--spacing) * 3);
-  }
-
-  .bottom-10 {
-    bottom: calc(var(--spacing) * 10);
   }
 
   .-left-12 {
@@ -972,10 +966,6 @@
     border-color: var(--color-white);
   }
 
-  .bg-amber-100 {
-    background-color: var(--color-amber-100);
-  }
-
   .bg-background {
     background-color: var(--background);
   }
@@ -1238,10 +1228,6 @@
 
   .whitespace-nowrap {
     white-space: nowrap;
-  }
-
-  .text-amber-600 {
-    color: var(--color-amber-600);
   }
 
   .text-black {
