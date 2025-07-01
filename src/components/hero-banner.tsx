@@ -1,11 +1,29 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+import {
   Bot,
   MapPin,
+  Phone,
+  
+  GraduationCap,
+  BookOpen,
+  ClipboardList,
+  School,
+  Presentation,
 } from "lucide-react";
+
 import {
   SiTiktok,
   SiInstagram,
@@ -14,24 +32,67 @@ import {
 } from "react-icons/si";
 
 export default function HeroBanner() {
+  const [openDialog, setOpenDialog] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleCall = () => {
+    window.location.href = "tel:0214406363";
+    setOpenDialog(false);
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      setPosition({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const moveIcon = (factor: number) => ({
+    transform: `translate(${position.x * factor}px, ${position.y * factor}px)`,
+  });
+
   return (
     <section
-      className="relative w-full py-20 bg-cover bg-center bg-no-repeat"
+      className="relative w-full py-20 bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{ backgroundImage: "url('/images/hero.jpg')" }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white/40" />
+      <div className="absolute inset-0 bg-white/40 z-0" />
 
-      <div className="relative container mx-auto px-6 md:px-12 text-center space-y-6">
-        {/* NAMA SEKOLAH 2 BARIS */}
+      {/* Ikon dekoratif bertema sekolah */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        <GraduationCap
+          className="absolute top-10 left-10 text-indigo-700 w-10 h-10 transition-transform duration-200"
+          style={moveIcon(20)}
+        />
+        <BookOpen
+          className="absolute bottom-28 left-1/4 text-green-600 w-10 h-10 transition-transform duration-200"
+          style={moveIcon(35)}
+        />
+        <ClipboardList
+          className="absolute top-1/3 right-10 text-orange-500 w-10 h-10 transition-transform duration-200"
+          style={moveIcon(25)}
+        />
+        <School
+          className="absolute top-16 right-1/4 text-blue-600 w-10 h-10 transition-transform duration-200"
+          style={moveIcon(30)}
+        />
+        <Presentation
+          className="absolute bottom-10 right-10 text-pink-500 w-10 h-10 transition-transform duration-200"
+          style={moveIcon(30)}
+        />
+
+      </div>
+
+      <div className="relative z-20 container mx-auto px-6 md:px-12 text-center space-y-6">
         <h1 className="text-3xl md:text-5xl font-bold text-gray-800 drop-shadow-md leading-tight">
           SDN Semper Barat 01<br />Jakarta Utara
         </h1>
 
         <Card className="p-4 rounded-2xl shadow-sm ring-1 ring-white/30 bg-white/10 backdrop-blur-sm w-fit mx-auto space-y-4">
-
-
-          {/* Tombol AI assistant + label */}
           <Button
             asChild
             className="gap-2 text-primary font-medium"
@@ -47,9 +108,8 @@ export default function HeroBanner() {
             </a>
           </Button>
 
-          {/* Social Media Icons */}
+          {/* Ikon Sosial Media */}
           <div className="flex justify-center gap-4">
-            {/* WhatsApp */}
             <Button
               asChild
               variant="ghost"
@@ -65,7 +125,32 @@ export default function HeroBanner() {
               </a>
             </Button>
 
-            {/* TikTok */}
+            <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+              <DialogTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-blue-700 hover:bg-blue-100"
+                >
+                  <Phone className="h-5 w-5" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Hubungi via Telepon</DialogTitle>
+                </DialogHeader>
+                <p className="text-sm text-gray-600">
+                  Anda akan melakukan panggilan ke (021) 4406363. Lanjutkan?
+                </p>
+                <DialogFooter className="mt-4">
+                  <Button variant="outline" onClick={() => setOpenDialog(false)}>
+                    Batal
+                  </Button>
+                  <Button onClick={handleCall}>Lanjutkan</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+
             <Button
               asChild
               variant="ghost"
@@ -81,7 +166,6 @@ export default function HeroBanner() {
               </a>
             </Button>
 
-            {/* Instagram */}
             <Button
               asChild
               variant="ghost"
@@ -97,7 +181,6 @@ export default function HeroBanner() {
               </a>
             </Button>
 
-            {/* YouTube */}
             <Button
               asChild
               variant="ghost"
@@ -113,7 +196,6 @@ export default function HeroBanner() {
               </a>
             </Button>
 
-            {/* Google Maps */}
             <Button
               asChild
               variant="ghost"
