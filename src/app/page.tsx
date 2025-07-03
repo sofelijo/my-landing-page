@@ -8,7 +8,7 @@ import DokumentasiSection from "@/components/DokumentasiSection";
 
 export default function Home() {
   return (
-    <main className="space-y-24">
+    <main className="space-y-24 ">
       <Banner />
 
       {/* Pengumuman Sekolah */}
