@@ -15,6 +15,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { motion } from "framer-motion";
 
 const kegiatanList = [
   {
@@ -48,34 +49,43 @@ export default function KegiatanSection() {
 
   return (
     <>
-      <section className="max-w-screen-xl mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold text-center mb-12">Kegiatan Siswa</h2>
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-screen-xl mx-auto px-4">
+          <motion.h2
+            className="text-3xl font-bold text-center mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Kegiatan Siswa
+          </motion.h2>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {kegiatanList.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => handleOpen(item)}
-              className="group rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-[1.02] hover:shadow-xl bg-white cursor-pointer flex flex-col"
-            >
-              {/* Frame gambar tetap rasio 16:9 */}
-              <div className="relative aspect-[16/9] w-full overflow-hidden">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Deskripsi */}
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.desc}</p>
-              </div>
-            </div>
-          ))}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {kegiatanList.map((item, index) => (
+              <motion.div
+                key={index}
+                onClick={() => handleOpen(item)}
+                className="group cursor-pointer rounded-2xl bg-white shadow-md hover:shadow-xl overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-4 space-y-1">
+                  <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -84,7 +94,7 @@ export default function KegiatanSection() {
           {selected && (
             <>
               <DialogHeader>
-                <DialogTitle>{selected.title}</DialogTitle>
+                <DialogTitle className="text-xl font-bold">{selected.title}</DialogTitle>
               </DialogHeader>
 
               <p className="text-sm text-gray-600 mb-4">{selected.desc}</p>

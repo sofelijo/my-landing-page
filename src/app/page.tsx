@@ -1,3 +1,4 @@
+
 import Banner from "@/components/hero-banner";
 import KegiatanSection from "@/components/kegiatan-section";
 import EkstrakurikulerSection from "@/components/ekstrakurikuler-section";
