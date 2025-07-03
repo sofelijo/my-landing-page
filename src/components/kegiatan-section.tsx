@@ -49,7 +49,7 @@ export default function KegiatanSection() {
 
   return (
     <>
-      <section className="bg-gray-50 py-16">
+      <section className=" py-16">
         <div className="max-w-screen-xl mx-auto px-4">
           <motion.h2
             className="text-3xl font-bold text-center mb-12"

@@ -6,7 +6,7 @@ import EyeButton from "@/components/EyeButton";
 
 export default function KepalaSekolahSection() {
   return (
-    <section className=" py-16">
+    <section className="bg-gray-100 py-16">
       <div className="max-w-screen-xl mx-auto px-4">
         <motion.h2
           className="text-3xl font-bold text-center mb-12"
