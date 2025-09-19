@@ -95,20 +95,20 @@ export default function HeroBanner() {
         >
           <Card className="p-4 rounded-2xl shadow-sm ring-1 ring-white/30 bg-white/10 backdrop-blur-sm w-fit mx-auto space-y-4">
             <Button
-  asChild
-  className="gap-2 text-primary font-medium"
-  variant="outline"
->
-  <a
-    href="https://t.me/tanyasekolah_bot"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Bot className="h-5 w-5" />
-    Tanya sekolah? Tanyakan{" "}
-    <span className="font-bold italic">ASKA</span>!
-  </a>
-</Button>
+              asChild
+              className="gap-2 text-primary font-medium"
+              variant="outline"
+            >
+              <a
+                href="https://t.me/tanyasekolah_bot"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Bot className="h-5 w-5" />
+                Tanya sekolah? Tanyakan{" "}
+                <span className="font-bold italic">ASKA</span>!
+              </a>
+            </Button>
 
 
             {/* Sosmed */}
