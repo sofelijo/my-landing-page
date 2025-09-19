@@ -106,7 +106,7 @@ export default function HeroBanner() {
               >
                 <Bot className="h-5 w-5" />
                 Tanya sekolah? Tanyakan{""}
-                <span className="font-bold italic">ASKA</span>!
+                <span className="font-bold italic">ASKA!!</span>
               </a>
             </Button>
 
