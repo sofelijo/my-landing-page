@@ -100,7 +100,7 @@ export default function HeroBanner() {
               variant="outline"
             >
               <a
-                href="https://t.me/tanyasekolah_bot"
+                href="https://aska.sdnsembar01.sch.id/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
