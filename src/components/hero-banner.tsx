@@ -26,6 +26,7 @@ import {
   SiInstagram,
   SiYoutube,
   SiWhatsapp,
+  SiTelegram,
 } from "react-icons/si";
 import { motion, useInView } from "framer-motion";
 
@@ -114,6 +115,12 @@ export default function HeroBanner() {
             {/* Sosmed */}
             <div className="flex justify-center gap-4">
               {[
+                // ⬇️ Tambahan: Telegram di paling kiri
+                {
+                  href: "https://t.me/tanyaaska_bot",
+                  icon: <SiTelegram className="h-5 w-5" />,
+                  className: "text-sky-600 hover:bg-sky-100",
+                },
                 {
                   href: "https://www.whatsapp.com/channel/0029Vb64drS65yD5VaB8gP1n",
                   icon: <SiWhatsapp className="h-5 w-5" />,
